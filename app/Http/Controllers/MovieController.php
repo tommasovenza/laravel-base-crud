@@ -15,10 +15,10 @@ class MovieController extends Controller
         //     'movies ancora da vedere' => ['robocop', 'terminator', ],
         // ];
 
-        $movie = Movie::all();
-        
+        $movies = Movie::all();
+            
 
-        return view('movies', ['movie' => $movie]);
+        return view('movies', ['movies' => $movies]);
     }
 }
  

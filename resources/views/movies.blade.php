@@ -2,6 +2,6 @@
 
 <?php 
 
-var_dump($movie);
-
+// var_dump($movie)
+dd($movie);
 

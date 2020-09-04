@@ -36,9 +36,33 @@ class MovieController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
-    }
+    {   
+        $request->validate([
+            'nome_film' => 'required',
+            'anno' => 'required',
+            'voto' => 'required'
+            ]);
+        
+        $data = $request->all();
+
+        // validiamo il nuovo film creato dall'utente
+
+        $movie = new Movie;
+        $movie->nome_film = $data['nome_film'];
+        $movie->anno = $data['anno'];
+        $movie->voto = $data['voto'];
+        $saved = $movie->save();
+        
+
+        if($saved) {
+            
+            $movie = Movie::orderBy('id', 'desc')->first();
+
+            return redirect()->route('movies.show', $movie);
+        }
+
+        
+    }   
 
     /**
      * Display the specified resource.

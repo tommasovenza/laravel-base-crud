@@ -8,7 +8,7 @@ class Movie extends Model
 {   
     // le colonne gestite da me
     protected $fillable = [
-        'nome film',
+        'nome_film',
         'anno',
         'voto'
     ];

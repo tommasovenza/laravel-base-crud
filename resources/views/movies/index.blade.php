@@ -8,5 +8,7 @@
 
     <p> Voto: {{ $movie->voto }}</p>
 
+<a href="{{ route('movies.show', $movie->id) }}">dettagli</a>
+
 @endforeach 
 

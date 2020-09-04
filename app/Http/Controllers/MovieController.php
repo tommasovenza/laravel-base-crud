@@ -26,7 +26,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('movies.create');
     }
 
     /**
@@ -48,8 +48,12 @@ class MovieController extends Controller
      */
     public function show($id)
     {   
-        
+
         $movie = Movie::find($id);
+
+        if(empty($movie)) {  
+            abort(404);
+        }
 
         return view('movies.show', compact('movie'));
     }

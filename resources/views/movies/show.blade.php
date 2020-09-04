@@ -3,3 +3,5 @@
 <p>Anno di uscita: {{ $movie->anno }}</p>
 
 <p>Voto: {{ $movie->voto }}</p>
+
+<a href="{{ route('movies.index') }}">Torna indietro</a>

@@ -5,3 +5,4 @@
 <p>Voto: {{ $movie->voto }}</p>
 
 <a href="{{ route('movies.index') }}">Torna indietro</a>
+<a href="{{ route('movies.edit', $movie->id) }}">Modifica il tuo film</a>

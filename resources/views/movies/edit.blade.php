@@ -1,4 +1,4 @@
-<h1>Crea il tuo film</h1>
+<h1>modifica {{ $movie->nome_film }}</h1>
 
 @if ($errors->any())
 <div class="alert alert-danger">
@@ -10,24 +10,24 @@
 </div>
 @endif
 
-<form action="{{ route('movies.store') }}" method="POST">
+<form action="{{ route('movies.update', $movie->id) }}" method="POST">
     @csrf
 
-    @method('POST')
+    @method('PUT')
 
     <div>
         <label>Titolo</label>
-    <input type="text" name="nome_film" value="{{ old('nome_film')}}">
+    <input type="text" name="nome_film" value="{{ $movie->nome_film }}">
     </div>
 
     <div>
         <label>Anno</label>
-        <input type="text" step="any" name="anno" value="{{ old('anno')}}">
+    <input type="text" step="any" name="anno" value="{{ $movie->anno }}">
     </div>
 
     <div>
         <label>Voto</label>
-        <input type="text" step="any" name="voto" value="{{ old('voto')}}">
+    <input type="text" step="any" name="voto" value="{{ $movie->voto}}">
     </div>
 
     <div>
@@ -35,3 +35,5 @@
     </div>
 
 </form>
+
+<a href="{{route('movies.index')}}">Torna alla home</a>
